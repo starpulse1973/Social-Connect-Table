@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(powershell.exe -Command \"Compress-Archive -Path ''C:\\\\Users\\\\mywho\\\\Local Sites\\\\sb-dev\\\\app\\\\public\\\\wp-content\\\\plugins\\\\social-table'' -DestinationPath ''C:\\\\Users\\\\mywho\\\\Local Sites\\\\sb-dev\\\\app\\\\public\\\\wp-content\\\\plugins\\\\social-table.1.0.1.zip'' -Force\")",
+      "Bash(powershell.exe -Command \"\\(New-Object System.IO.Compression.ZipArchive\\([System.IO.File]::OpenRead\\(''C:\\\\Users\\\\mywho\\\\Local Sites\\\\sb-dev\\\\app\\\\public\\\\wp-content\\\\plugins\\\\social-table.1.0.1.zip''\\)\\)\\).Entries | Select-Object -First 10 FullName\")",
+      "Bash(powershell.exe -Command \"Add-Type -AssemblyName System.IO.Compression.FileSystem; [System.IO.Compression.ZipFile]::OpenRead\\(''C:\\\\Users\\\\mywho\\\\Local Sites\\\\sb-dev\\\\app\\\\public\\\\wp-content\\\\plugins\\\\social-table.1.0.1.zip''\\).Entries | Select-Object -First 10 FullName\")"
+    ]
+  }
+}

@@ -1,0 +1,317 @@
+/**
+ * Advanced WP Tables — Frontend Styles (Phase 3 + 5)
+ *
+ * Provides base table styling and DataTables overrides for consistent theming.
+ * Works alongside DataTables core CSS and extension CSS.
+ * Phase 5: Updated FixedColumns styles for v4.x class names.
+ */
+
+/* ==========================================================================
+   Table wrapper
+   ========================================================================== */
+
+.advt-table-wrap {
+    margin: 1.5em 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+}
+
+/* ==========================================================================
+   Base table styles (used when DataTables is disabled)
+   ========================================================================== */
+
+.advt-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.advt-table th,
+.advt-table td {
+    padding: 10px 14px;
+    border: 1px solid #e0e0e0;
+    text-align: left;
+    vertical-align: top;
+    word-wrap: break-word;
+}
+
+.advt-table thead th {
+    background: #f8f9fa;
+    font-weight: 600;
+    color: #333;
+    border-bottom-width: 2px;
+}
+
+.advt-table tfoot th {
+    background: #f8f9fa;
+    font-weight: 600;
+    color: #333;
+    border-top-width: 2px;
+}
+
+/* Stripe (alternating row colors) — non-DataTables fallback */
+.advt-table.stripe tbody tr:nth-child(odd) {
+    background-color: #f9fafb;
+}
+
+/* Hover highlight — non-DataTables fallback */
+.advt-table.hover tbody tr:hover {
+    background-color: #f0f6ff;
+}
+
+/* ==========================================================================
+   DataTables overrides — consistent theming
+   ========================================================================== */
+
+/* Wrapper spacing */
+.advt-table-wrap .dataTables_wrapper {
+    font-size: 14px;
+}
+
+/* Search box and length selector */
+.advt-table-wrap .dataTables_filter {
+    margin-bottom: 12px;
+}
+
+.advt-table-wrap .dataTables_filter input {
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.advt-table-wrap .dataTables_filter input:focus {
+    border-color: #2271b1;
+    box-shadow: 0 0 0 1px #2271b1;
+}
+
+.advt-table-wrap .dataTables_length select {
+    padding: 4px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* Info text */
+.advt-table-wrap .dataTables_info {
+    padding-top: 10px;
+    font-size: 13px;
+    color: #666;
+}
+
+/* Pagination */
+.advt-table-wrap .dataTables_paginate {
+    padding-top: 10px;
+}
+
+.advt-table-wrap .dataTables_paginate .paginate_button {
+    padding: 5px 12px;
+    margin: 0 2px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.advt-table-wrap .dataTables_paginate .paginate_button:hover {
+    background: #f0f6ff;
+    border-color: #2271b1;
+    color: #2271b1 !important;
+}
+
+.advt-table-wrap .dataTables_paginate .paginate_button.current {
+    background: #2271b1;
+    border-color: #2271b1;
+    color: #fff !important;
+    font-weight: 600;
+}
+
+.advt-table-wrap .dataTables_paginate .paginate_button.current:hover {
+    background: #135e96;
+    border-color: #135e96;
+    color: #fff !important;
+}
+
+.advt-table-wrap .dataTables_paginate .paginate_button.disabled {
+    opacity: 0.4;
+    cursor: default;
+}
+
+/* Sorting arrows */
+.advt-table-wrap table.dataTable thead th {
+    cursor: pointer;
+    position: relative;
+}
+
+/* ==========================================================================
+   Responsive extension overrides
+   ========================================================================== */
+
+/* Child row (expanded details on mobile) */
+.advt-table-wrap table.dataTable.dtr-inline.collapsed > tbody > tr > td.dtr-control::before,
+.advt-table-wrap table.dataTable.dtr-inline.collapsed > tbody > tr > th.dtr-control::before {
+    background-color: #2271b1;
+    border-color: #2271b1;
+}
+
+.advt-table-wrap table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td.dtr-control::before,
+.advt-table-wrap table.dataTable.dtr-inline.collapsed > tbody > tr.parent > th.dtr-control::before {
+    background-color: #d63638;
+}
+
+.advt-table-wrap table.dataTable > tbody > tr.child ul.dtr-details {
+    width: 100%;
+}
+
+.advt-table-wrap table.dataTable > tbody > tr.child ul.dtr-details > li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+/* ==========================================================================
+   Buttons extension overrides
+   ========================================================================== */
+
+.advt-table-wrap .dt-buttons {
+    margin-bottom: 12px;
+}
+
+.advt-table-wrap .dt-buttons .dt-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #fff;
+    color: #333;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.15s;
+    margin-right: 4px;
+}
+
+.advt-table-wrap .dt-buttons .dt-button:hover {
+    background: #f0f6ff;
+    border-color: #2271b1;
+    color: #2271b1;
+}
+
+.advt-table-wrap .dt-buttons .dt-button:active {
+    background: #e8f0fe;
+}
+
+/* ==========================================================================
+   FixedHeader overrides
+   ========================================================================== */
+
+.advt-table-wrap table.dataTable.fixedHeader-floating {
+    z-index: 100;
+}
+
+/* ==========================================================================
+   FixedColumns overrides
+   ========================================================================== */
+
+/* Legacy class names (FixedColumns < 4.x) */
+.advt-table-wrap .DTFC_LeftWrapper .DTFC_LeftBodyWrapper {
+    border-right: 2px solid #ddd;
+}
+
+/* Modern class names (FixedColumns 4.x+) */
+.advt-table-wrap table.dataTable thead th.dtfc-fixed-left,
+.advt-table-wrap table.dataTable tbody td.dtfc-fixed-left {
+    background-color: #fff;
+    border-right: 2px solid #ddd;
+}
+
+.advt-table-wrap table.dataTable thead th.dtfc-fixed-right,
+.advt-table-wrap table.dataTable tbody td.dtfc-fixed-right {
+    background-color: #fff;
+    border-left: 2px solid #ddd;
+}
+
+/* Ensure fixed column cells have higher z-index for scrolling */
+.advt-table-wrap table.dataTable th.dtfc-fixed-left,
+.advt-table-wrap table.dataTable td.dtfc-fixed-left {
+    z-index: 2;
+}
+
+/* Striped rows need consistent background in fixed columns */
+.advt-table-wrap table.dataTable.stripe tbody tr.odd td.dtfc-fixed-left,
+.advt-table-wrap table.dataTable.stripe tbody tr.odd td.dtfc-fixed-right {
+    background-color: #f9fafb;
+}
+
+.advt-table-wrap table.dataTable.hover tbody tr:hover td.dtfc-fixed-left,
+.advt-table-wrap table.dataTable.hover tbody tr:hover td.dtfc-fixed-right {
+    background-color: #f0f6ff;
+}
+
+/* ==========================================================================
+   Print styles
+   ========================================================================== */
+
+@media print {
+    .advt-table-wrap .dataTables_filter,
+    .advt-table-wrap .dataTables_length,
+    .advt-table-wrap .dataTables_paginate,
+    .advt-table-wrap .dataTables_info,
+    .advt-table-wrap .dt-buttons {
+        display: none !important;
+    }
+
+    .advt-table-wrap .advt-table {
+        border: 1px solid #000;
+    }
+
+    .advt-table-wrap .advt-table th,
+    .advt-table-wrap .advt-table td {
+        border: 1px solid #000;
+        padding: 6px 8px;
+    }
+}
+
+/* ==========================================================================
+   Responsive adjustments
+   ========================================================================== */
+
+@media screen and (max-width: 767px) {
+    .advt-table-wrap .dataTables_wrapper .dataTables_filter,
+    .advt-table-wrap .dataTables_wrapper .dataTables_length {
+        float: none;
+        text-align: left;
+        margin-bottom: 8px;
+    }
+
+    .advt-table-wrap .dataTables_wrapper .dataTables_filter input {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .advt-table-wrap .dataTables_wrapper .dataTables_paginate {
+        text-align: center;
+    }
+
+    .advt-table-wrap .dataTables_wrapper .dataTables_paginate .paginate_button {
+        padding: 8px 14px;
+    }
+
+    .advt-table-wrap .dt-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+
+    .advt-table-wrap .dt-buttons .dt-button {
+        flex: 1 1 auto;
+        justify-content: center;
+        margin-right: 0;
+    }
+}
